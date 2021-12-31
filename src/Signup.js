@@ -15,6 +15,11 @@ function Signup(){
         console.log(email);
         console.log(password);
     }
+    //needs when type submit is set to prevent page reload
+    // function handleSubmit(e) {
+    //     e.preventDefault();
+    //     console.log('You clicked submit.');
+    // }
     return(
         <div>
             <Container >
@@ -34,7 +39,7 @@ function Signup(){
                         </Form.Group>
                     </Col>
                     <Col md = {6}>
-                        <Button variant="primary" type="submit"  onClick={SignupApi}>
+                        <Button variant="primary"  onClick={SignupApi}>
                             Submit
                         </Button>
                     </Col>
