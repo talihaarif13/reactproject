@@ -8,6 +8,9 @@ import About from "./About";
 import Signup from "./Signup";
 import Room from "./Room";
 import LifeCycle from './LifeCycle';
+import { MovieProvider } from "./context/MovieContext";
+import ContextNav from "./context/Nav";
+import MovieList from "./context/MovieList";
 
 
 function App() {
@@ -25,7 +28,11 @@ function App() {
         <Route path="/room/:id" element={< Room />}/>
         <Route path = '/lifecycle' element={< LifeCycle />}/>
       </Routes>
-
+      <MovieProvider>
+        <ContextNav />
+        <Signup/>
+        <MovieList />
+      </MovieProvider>
     </div>
 
   );

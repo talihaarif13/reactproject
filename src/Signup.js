@@ -1,23 +1,28 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import './Signup.css';
 import { Form,  Button, Container, Row, Col } from "react-bootstrap";
+import { MovieContext } from "./context/MovieContext";
 
 function Signup(){
     const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [movies, setMovies] = useContext(MovieContext);
+
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     }
-    const [password, setPassword] = useState("");
+    
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
     }
     const SignupApi = () => {
         console.log(email);
         console.log(password);
+        setMovies(prevMovies => [...prevMovies, {name:email, price: password, id: 6}]);
     }
     //needs when type submit is set to prevent page reload
-    // function handleSubmit(e) {
-    //     e.preventDefault();
+    // const handleSubmit = (e) => {
+    //     e.preventDefault(); 
     //     console.log('You clicked submit.');
     // }
     return(
