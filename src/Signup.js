@@ -6,6 +6,7 @@ import { MovieContext } from "./context/MovieContext";
 function Signup(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    //console.log(MovieContext);
     const [movies, setMovies] = useContext(MovieContext);
 
     const handleEmailChange = (e) => {
@@ -20,6 +21,9 @@ function Signup(){
         console.log(password);
         setMovies(prevMovies => [...prevMovies, {name:email, price: password, id: 6}]);
     }
+    // const removeUser = (id) => {
+    //     setMovies(movies.filter(movie => movie.id !== id))
+    // }
     //needs when type submit is set to prevent page reload
     // const handleSubmit = (e) => {
     //     e.preventDefault(); 

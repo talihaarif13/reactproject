@@ -2,15 +2,14 @@ import React from "react";
 import NavBar from "./NavBar";
 // import Signup from "./Signup";
 import { Routes, Route } from "react-router-dom";
-import Home from "./Home";
-import Hotel from "./Hotel";
-import About from "./About";
+import Home from "./Component/Home";
+import Hotel from "./DynamicRouting/Hotel";
+import About from "./Component/About";
 import Signup from "./Signup";
-import Room from "./Room";
+import Room from "./DynamicRouting/Room";
 import LifeCycle from './LifeCycle';
-import { MovieProvider } from "./context/MovieContext";
-import ContextNav from "./context/Nav";
-import MovieList from "./context/MovieList";
+import ContextUsage from "./context/ContextComponent";
+
 
 
 function App() {
@@ -27,12 +26,8 @@ function App() {
         <Route exact path="/Signup" element={<Signup />} />
         <Route path="/room/:id" element={< Room />}/>
         <Route path = '/lifecycle' element={< LifeCycle />}/>
+        <Route path = '/context' element= {<ContextUsage />} />
       </Routes>
-      <MovieProvider>
-        <ContextNav />
-        <Signup/>
-        <MovieList />
-      </MovieProvider>
     </div>
 
   );

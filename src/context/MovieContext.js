@@ -1,4 +1,4 @@
-import React, {useState, createContext} from "react";
+import React, {useState, createContext, useEffect} from "react";
 
 export const MovieContext = createContext();
 
@@ -20,6 +20,9 @@ export const MovieProvider = (props) => {
             id: 1
         }
     ])
+    useEffect(() => {
+        console.log('use effect called');
+    })
     return(
         <MovieContext.Provider value={[movies,setMovies]}>
             {props.children}
