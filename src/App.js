@@ -9,7 +9,7 @@ import Signup from "./Signup";
 import Room from "./DynamicRouting/Room";
 import LifeCycle from './LifeCycle';
 import ContextUsage from "./context/ContextComponent";
-
+import Profile from "./Profile";
 
 
 function App() {
@@ -18,7 +18,7 @@ function App() {
 
       {/* exact matchs exactly  but if not use will partially match*/}
 
-      <NavBar headings={["Hotel", "Signup", "About"]} />
+      <NavBar headings={["Hotel", "Signup", "About", "Profile"]} />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path = "/Hotel" element={ <Hotel/> } />
@@ -26,7 +26,9 @@ function App() {
         <Route exact path="/Signup" element={<Signup />} />
         <Route path="/room/:id" element={< Room />}/>
         <Route path = '/lifecycle' element={< LifeCycle />}/>
-        <Route path = '/context' element= {<ContextUsage />} />
+        <Route path = '/context' element={< ContextUsage />}/>
+        <Route path = '/Profile' element= {<Profile />} />
+
       </Routes>
     </div>
 
