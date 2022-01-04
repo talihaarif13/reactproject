@@ -5,9 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router } from "react-router-dom";
-import store from './Redux/store';
 import { Provider } from 'react-redux'
-
+import store from './ReactSaga/main';
 ReactDOM.render(
   <React.StrictMode>
     <Router>

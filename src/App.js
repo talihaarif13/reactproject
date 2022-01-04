@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "./NavBar";
 // import Signup from "./Signup";
 import { Routes, Route } from "react-router-dom";
@@ -10,9 +10,21 @@ import Room from "./DynamicRouting/Room";
 import LifeCycle from './LifeCycle';
 import ContextUsage from "./context/ContextComponent";
 import Profile from "./Profile";
+import { useDispatch, useSelector } from "react-redux";
 
 
 function App() {
+  const dispatch = useDispatch();
+  const payload = {
+    email : "taliha@gmaill.com",
+    password: "1234"
+  }
+  useEffect(() => {
+    dispatch({type: "userLogin", payload});
+  }, []);
+  const user = useSelector(state => state.email);
+  console.log("user", user);
+
   return (
     <div>
 
