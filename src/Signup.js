@@ -4,7 +4,7 @@ import { Form,  Button, Container, Row, Col } from "react-bootstrap";
 // import { MovieContext } from "./context/MovieContext";
 import store from "./Redux/store";
 import { getHotels, userLogin } from "./Redux/Actions/action";
-import axios from "axios";
+import service from "./Services/axiosService";
 
 function Signup(){
     const [email, setEmail] = useState("");
@@ -19,20 +19,32 @@ function Signup(){
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
     }
-    const SignupApi = () => {
+    const SignupApi = async () => {
         console.log(email);
         console.log(password);
         // setMovies(prevMovies => [...prevMovies, {name:email, price: password, id: 6}]);
-        axios.post("http://localhost:3000/user/login", {
-            "email": email,
-            "password": password
-        }).then((response) => {
-            console.log(response.data);
-            store.dispatch(userLogin(response.data.id, response.data.name, response.data.email))
-            store.dispatch(getHotels(1));
-        }).catch((err) => {
-            console.log(err.message);
-        })
+        try {
+            const login_user = await service.post("user/login", "", {
+                "email": email,
+                "password": password
+            });
+            console.log("login user ", login_user);
+            store.dispatch(userLogin(login_user.data.id, login_user.data.name, login_user.data.email))
+            store.dispatch(getHotels());
+            //dispatch({ type: actions.FETCH_HOTELS, payload: hotels});
+        } catch (error) {
+            console.log(error);
+        }
+        // axios.post("http://localhost:3000/user/login", {
+        //     "email": email,
+        //     "password": password
+        // }).then((response) => {
+        //     console.log(response.data);
+        //     store.dispatch(userLogin(response.data.id, response.data.name, response.data.email))
+        //     store.dispatch(getHotels(1));
+        // }).catch((err) => {
+        //     console.log(err.message);
+        // })
         
     }
     // const removeUser = (id) => {

@@ -6,7 +6,7 @@ export default function fetchHotels(state = [], action) {
                 ...state, 
                 {
                     id: action.payload.data[0].id,
-                    picture: action.payload.data[0].name,
+                    picture: action.payload.data[0].picture,
                     name: action.payload.data[0].name,
                 }
             ];
